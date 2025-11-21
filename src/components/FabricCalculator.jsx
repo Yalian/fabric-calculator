@@ -15,7 +15,9 @@ function FabricCalculator() {
       data.pieceWidth,
       data.pieceHeight,
       data.pieceCount,
-      data.margin
+      data.margin,
+      data.cuttingTableLength,
+      data.foldWaste
     );
     setResult(calculationResult);
   };

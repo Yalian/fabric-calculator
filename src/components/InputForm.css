@@ -58,6 +58,14 @@
   outline: none;
 }
 
+.form-group .help-text {
+  display: block;
+  color: #888;
+  font-size: 0.85rem;
+  margin-top: 0.25rem;
+  font-style: italic;
+}
+
 .calculate-btn {
   width: 100%;
   background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);

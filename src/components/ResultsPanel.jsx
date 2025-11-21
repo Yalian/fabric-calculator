@@ -20,11 +20,16 @@ function ResultsPanel({ result }) {
 
       <div className="results-grid">
         <div className="result-card primary">
-          <div className="result-label">Tela Necesaria</div>
+          <div className="result-label">
+            {result.hasFolds ? 'Tela Total (con dobleces)' : 'Tela Necesaria'}
+          </div>
           <div className="result-value">
-            {result.fabricLengthNeededMeters.toFixed(2)} m
+            {result.fabricLengthWithFoldsMeters.toFixed(2)} m
           </div>
           <div className="result-detail">
+            {result.hasFolds && (
+              <span>{result.fabricLengthNeededMeters.toFixed(2)}m + {(result.totalFoldWaste / 100).toFixed(2)}m desperdicio<br/></span>
+            )}
             {result.rollsNeeded > 1
               ? `Requiere ${result.rollsNeeded} rollos`
               : 'Cabe en 1 rollo'}
@@ -44,6 +49,16 @@ function ResultsPanel({ result }) {
             para {result.totalPiecesPlaced} piezas
           </div>
         </div>
+
+        {result.hasFolds && (
+          <div className="result-card info">
+            <div className="result-label">Dobleces de Tela</div>
+            <div className="result-value">{result.foldsNeeded}</div>
+            <div className="result-detail">
+              {result.foldWasteCm}cm por doblez
+            </div>
+          </div>
+        )}
 
         <div className="result-card">
           <div className="result-label">Eficiencia</div>
@@ -77,14 +92,22 @@ function ResultsPanel({ result }) {
             <strong>Ancho:</strong> {(result.rollWidthCm / 100).toFixed(2)} metros (ancho del rollo)
           </li>
           <li>
-            <strong>Largo:</strong> {result.fabricLengthNeededMeters.toFixed(2)} metros
+            <strong>Largo:</strong> {result.fabricLengthWithFoldsMeters.toFixed(2)} metros
+            {result.hasFolds && (
+              <span> (incluye {(result.totalFoldWaste / 100).toFixed(2)}m de desperdicio por {result.foldsNeeded} doblez/ces)</span>
+            )}
             {result.rollsNeeded > 1 &&
-              ` (o ${result.rollsNeeded} rollos completos)`}
+              ` - Requiere ${result.rollsNeeded} rollos`}
           </li>
           <li>
-            <strong>Total:</strong> {((result.rollWidthCm / 100) * result.fabricLengthNeededMeters).toFixed(2)} m²
+            <strong>Total:</strong> {((result.rollWidthCm / 100) * result.fabricLengthWithFoldsMeters).toFixed(2)} m²
           </li>
         </ul>
+        {result.hasFolds && (
+          <div className="fold-info">
+            ℹ️ La tela se doblará {result.foldsNeeded} vez/ces sobre la mesa de {(result.cuttingTableLengthCm / 100).toFixed(2)}m para facilitar el corte.
+          </div>
+        )}
       </div>
     </div>
   );

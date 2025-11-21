@@ -54,6 +54,11 @@
   border-left: 4px solid #ffc107;
 }
 
+.result-card.info {
+  background: #e3f2fd;
+  border-left: 4px solid #2196f3;
+}
+
 .result-label {
   font-size: 0.9rem;
   color: #666;
@@ -107,6 +112,16 @@
 .purchase-recommendation strong {
   color: #1976d2;
   font-weight: 600;
+}
+
+.purchase-recommendation .fold-info {
+  margin-top: 1rem;
+  padding: 0.75rem;
+  background: rgba(33, 150, 243, 0.1);
+  border-radius: 6px;
+  font-size: 0.95rem;
+  color: #1976d2;
+  font-weight: 500;
 }
 
 @media (max-width: 768px) {

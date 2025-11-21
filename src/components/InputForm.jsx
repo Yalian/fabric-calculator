@@ -8,6 +8,8 @@ function InputForm({ onCalculate }) {
   const [pieceHeight, setPieceHeight] = useState(34);
   const [pieceCount, setPieceCount] = useState(100);
   const [margin, setMargin] = useState(1);
+  const [cuttingTableLength, setCuttingTableLength] = useState(2);
+  const [foldWaste, setFoldWaste] = useState(5);
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -17,7 +19,9 @@ function InputForm({ onCalculate }) {
       pieceWidth: parseFloat(pieceWidth),
       pieceHeight: parseFloat(pieceHeight),
       pieceCount: parseInt(pieceCount),
-      margin: parseFloat(margin)
+      margin: parseFloat(margin),
+      cuttingTableLength: parseFloat(cuttingTableLength),
+      foldWaste: parseFloat(foldWaste)
     });
   };
 
@@ -111,6 +115,42 @@ function InputForm({ onCalculate }) {
                 required
               />
             </label>
+          </div>
+        </div>
+
+        <div className="form-section">
+          <h3>Mesa de Corte</h3>
+          <div className="form-group">
+            <label>
+              Largo de la mesa (metros)
+              <input
+                type="number"
+                step="0.1"
+                min="0"
+                value={cuttingTableLength}
+                onChange={(e) => setCuttingTableLength(e.target.value)}
+                placeholder="0 = sin doblar"
+              />
+            </label>
+            <small className="help-text">
+              Si la mesa es más corta que la tela, se doblará la tela
+            </small>
+          </div>
+          <div className="form-group">
+            <label>
+              Desperdicio por doblez (cm)
+              <input
+                type="number"
+                step="0.1"
+                min="0"
+                value={foldWaste}
+                onChange={(e) => setFoldWaste(e.target.value)}
+                required
+              />
+            </label>
+            <small className="help-text">
+              Tela que se pierde en cada doblez
+            </small>
           </div>
         </div>
 
