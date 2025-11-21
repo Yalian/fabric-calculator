@@ -1,0 +1,128 @@
+.results-panel {
+  background: white;
+  padding: 2rem;
+  border-radius: 12px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.results-panel.error {
+  background: #fee;
+  border: 2px solid #fcc;
+}
+
+.results-panel h3 {
+  color: #667eea;
+  font-size: 1.6rem;
+  margin-bottom: 1.5rem;
+  text-align: center;
+}
+
+.results-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 1rem;
+  margin-bottom: 2rem;
+}
+
+.result-card {
+  background: #f8f9fa;
+  padding: 1.5rem;
+  border-radius: 8px;
+  border-left: 4px solid #667eea;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.result-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+}
+
+.result-card.primary {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  border-left: 4px solid #764ba2;
+}
+
+.result-card.primary .result-label,
+.result-card.primary .result-value,
+.result-card.primary .result-detail {
+  color: white;
+}
+
+.result-card.warning {
+  background: #fff3cd;
+  border-left: 4px solid #ffc107;
+}
+
+.result-label {
+  font-size: 0.9rem;
+  color: #666;
+  font-weight: 500;
+  margin-bottom: 0.5rem;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.result-value {
+  font-size: 2rem;
+  font-weight: 700;
+  color: #333;
+  margin-bottom: 0.25rem;
+}
+
+.result-detail {
+  font-size: 0.85rem;
+  color: #888;
+}
+
+.purchase-recommendation {
+  background: #e7f3ff;
+  padding: 1.5rem;
+  border-radius: 8px;
+  border-left: 4px solid #2196f3;
+}
+
+.purchase-recommendation h4 {
+  color: #1976d2;
+  margin-bottom: 0.75rem;
+  font-size: 1.2rem;
+}
+
+.purchase-recommendation p {
+  color: #555;
+  margin-bottom: 1rem;
+}
+
+.purchase-recommendation ul {
+  list-style: none;
+  padding: 0;
+}
+
+.purchase-recommendation li {
+  padding: 0.5rem 0;
+  color: #333;
+  font-size: 1rem;
+}
+
+.purchase-recommendation strong {
+  color: #1976d2;
+  font-weight: 600;
+}
+
+@media (max-width: 768px) {
+  .results-panel {
+    padding: 1.5rem;
+  }
+
+  .results-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .result-value {
+    font-size: 1.5rem;
+  }
+
+  .purchase-recommendation {
+    padding: 1rem;
+  }
+}
