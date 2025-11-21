@@ -4,6 +4,7 @@ Una aplicación web que optimiza el uso de tela calculando la distribución perf
 
 ## 🌟 Características
 
+- **Progressive Web App (PWA)**: Instálala en tu teléfono o computadora y úsala sin conexión
 - **Optimización Inteligente**: Algoritmo de bin packing 2D que minimiza el desperdicio de tela
 - **Cálculo de Dobleces**: Considera el desperdicio al doblar la tela sobre la mesa de corte
 - **Márgenes Configurables**: Define espacios entre piezas para el corte
@@ -11,10 +12,27 @@ Una aplicación web que optimiza el uso de tela calculando la distribución perf
 - **Resultados Detallados**: Muestra eficiencia, desperdicio, número de dobleces y más
 - **Diseño Responsivo**: Funciona en desktop y móvil
 - **Interfaz Intuitiva**: Fácil de usar con formularios claros y ayuda contextual
+- **Modo Offline**: Funciona sin internet después de la primera visita
 
 ## 🚀 Demo en Vivo
 
 👉 [https://yalian.github.io/fabric-calculator/](https://yalian.github.io/fabric-calculator/)
+
+## 📱 Instalar como App
+
+Esta aplicación es una PWA y puede instalarse en tu dispositivo:
+
+### En móvil (Android/iOS):
+1. Abre la app en tu navegador
+2. Toca el menú del navegador (⋮ o ⋯)
+3. Selecciona "Agregar a pantalla de inicio" o "Instalar app"
+4. ¡Listo! Ahora puedes usarla como una app nativa, incluso sin conexión
+
+### En computadora (Chrome/Edge):
+1. Abre la app en tu navegador
+2. Busca el ícono de instalación (➕) en la barra de direcciones
+3. Haz clic en "Instalar"
+4. La app se abrirá en su propia ventana
 
 ## 💻 Instalación Local
 
@@ -44,10 +62,13 @@ npm run build
 ## 🔧 Tecnologías
 
 - React + Vite
+- Progressive Web App (PWA) con vite-plugin-pwa
+- Service Worker con Workbox para caché offline
 - Canvas API para visualización
 - CSS moderno con gradientes
 - Algoritmo de optimización 2D personalizado
 - Playwright para testing visual
+- Manifest.json para instalación nativa
 
 ## 📊 Ejemplo de Cálculo
 
